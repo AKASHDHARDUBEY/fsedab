@@ -1,36 +1,35 @@
-
 name: Standers ci
 
-on: push
+on:
+  push:
 
 jobs:
   build-test:
     name: Build test and deploy
     runs-on: ubuntu-latest
 
-
     steps:
-       - name: Chaeckout latest code
-         uses: action/checkout@v4
+      - name: Checkout latest code
+        uses: actions/checkout@v4
 
-       - name: Setup Nodejs
-         uses: actions/setup-node@v4
-         with: 
-            node-version: 18
-       - name: Run lint
-         run: npm run lint
-       - name: Run build 
-         run: npm run build
+      - name: Setup Nodejs
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-       - name: Run test
-         run : npm run test
+      - name: Install dependencies
+        run: npm install
 
-       - name: Run deloy
-         run: npm run deploy 
+      - name: Run lint
+        run: npm run lint
 
+      - name: Run build
+        run: npm run build
 
+      - name: Run test
+        run: npm run test
 
+      - name: Run deploy
+        run: npm run deploy
 
-
-
-            
+        
