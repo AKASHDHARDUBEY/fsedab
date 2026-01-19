@@ -1,0 +1,33 @@
+
+name: Standers ci
+
+on: push
+
+jobs:
+  build-test:
+    name: Build test and deploy
+    runs-on: ubuntu@latest
+
+    steps:
+       - name: Chaeckout latest code
+         uses: action/checkout@v4
+
+       - name: Setup Nodejs
+         uses: actions/setup-node@v4
+       - name: Run lint
+         run: npm run lint
+       - name: Run build 
+         run: npm run build
+
+       - name: Run test
+         run : npm run test
+
+       - name: Run deloy
+         run: npm run deploy 
+
+
+
+
+
+
+            
