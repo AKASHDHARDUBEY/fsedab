@@ -1,11 +1,47 @@
+# name: Standers ci
+
+# on:
+#   push:
+
+# jobs:
+#   build-test:
+#     name: Build test and deploy
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout latest code
+#         uses: actions/checkout@v4
+
+#       - name: Setup Nodejs
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 18
+
+#       - name: Install dependencies
+#         run: npm install
+
+#       - name: Run lint
+#         run: npm run lint
+
+#       - name: Run build
+#         run: npm run build
+
+#       - name: Run test
+#         run: npm run test
+
+#       - name: Run deploy
+#         run: npm run deploy
+
+
+
 name: Standers ci
 
 on:
   push:
 
 jobs:
-  build-test:
-    name: Build test and deploy
+  build-test-deploy:
+    name: Lint → Build → Test → Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -20,16 +56,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run lint
+      - name: Lint
         run: npm run lint
 
-      - name: Run build
+      - name: Build
         run: npm run build
 
-      - name: Run test
+      - name:  Test
         run: npm run test
 
-      - name: Run deploy
+      - name:  Deploy
         run: npm run deploy
 
-        
